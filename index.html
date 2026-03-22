@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Muhammed Razi — E&I QC Engineer</title>
+<meta name="description" content="Muhammed Razi — Electrical & Instrumentation QC Engineer based in Khobar, Saudi Arabia.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<!-- Netlify Identity for CMS auth -->
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root[data-theme="light"]{
+  --bg:#fdfaf6;--bg2:#f5f0e8;--bg3:#ede6d9;--card:#ffffff;
+  --text:#1c1916;--text2:#5a524a;--text3:#9e9488;
+  --accent:#e05c20;--accent2:#f07a42;--accent3:#fdeee7;--accent4:#fff8f5;
+  --teal:#1e7a78;--teal2:#e4f4f3;--teal3:#c0e8e7;
+  --border:rgba(0,0,0,0.08);--border2:rgba(0,0,0,0.05);
+  --shadow:rgba(60,40,20,0.11);--shadow2:rgba(60,40,20,0.06);
+  --nav-bg:rgba(253,250,246,0.93);
+  --tag-bg:#fff0e8;--tag-color:#bf4a18;
+  --timeline-line:#e8ddd0;
+  --prose-bg:#fdfaf6;
+}
+:root[data-theme="dark"]{
+  --bg:#111009;--bg2:#1a1714;--bg3:#231f19;--card:#1e1b16;
+  --text:#f0ebe2;--text2:#aea69a;--text3:#6a6258;
+  --accent:#f07a42;--accent2:#f59e70;--accent3:#2b1e15;--accent4:#241a12;
+  --teal:#45b5b3;--teal2:#0f2423;--teal3:#1a3a38;
+  --border:rgba(255,255,255,0.07);--border2:rgba(255,255,255,0.04);
+  --shadow:rgba(0,0,0,0.55);--shadow2:rgba(0,0,0,0.3);
+  --nav-bg:rgba(17,16,9,0.93);
+  --tag-bg:#2b1e15;--tag-color:#f09070;
+  --prose-bg:#1a1714;
+}
+html{scroll-behavior:smooth;}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;transition:background .4s,color .4s;cursor:none;}
+::-webkit-scrollbar{width:4px;}
+::-webkit-scrollbar-track{background:var(--bg2);}
+::-webkit-scrollbar-thumb{background:var(--accent);border-radius:4px;}
+
+/* CURSOR */
+#cur,#cur2{position:fixed;border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);}
+#cur{width:9px;height:9px;background:var(--accent);transition:width .2s,height .2s,background .2s;}
+#cur2{width:34px;height:34px;border:1.5px solid var(--accent);opacity:.4;transition:width .3s,height .3s,opacity .3s;}
+body.hov #cur{width:18px;height:18px;background:var(--teal);}
+body.hov #cur2{width:52px;height:52px;opacity:.25;}
+@media(hover:none){#cur,#cur2{display:none;}body{cursor:auto;}}
+
+/* PROGRESS */
+#prog{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--teal));z-index:9998;width:0%;border-radius:0 3px 3px 0;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:500;background:var(--nav-bg);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border2);transition:background .4s,box-shadow .3s;}
+nav.scrolled{box-shadow:0 4px 30px var(--shadow2);}
+.nav-in{max-width:1180px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:64px;}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--text);text-decoration:none;display:flex;align-items:center;gap:8px;}
+.ldot{width:8px;height:8px;border-radius:50%;background:var(--accent);display:inline-block;animation:bop 2.4s ease-in-out infinite;}
+@keyframes bop{0%,100%{transform:translateY(0);}50%{transform:translateY(-4px);}}
+.nav-links{display:flex;align-items:center;gap:28px;}
+.nav-links a{font-size:.78rem;font-weight:500;letter-spacing:.05em;color:var(--text2);text-decoration:none;position:relative;padding-bottom:3px;transition:color .25s;}
+.nav-links a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:var(--accent);border-radius:2px;transition:width .3s;}
+.nav-links a:hover,.nav-links a.act{color:var(--accent);}
+.nav-links a.act::after,.nav-links a:hover::after{width:100%;}
+.tpill{display:flex;align-items:center;gap:6px;background:var(--bg2);border:1px solid var(--border);border-radius:30px;padding:5px 13px 5px 9px;cursor:pointer;font-size:.72rem;font-weight:600;color:var(--text2);font-family:'Plus Jakarta Sans',sans-serif;transition:border-color .25s,color .25s;}
+.tpill:hover{border-color:var(--accent);color:var(--accent);}
+.tic{font-size:.95rem;}
+.ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none;}
+.ham span{display:block;width:22px;height:2px;background:var(--text2);border-radius:2px;transition:all .35s;}
+.ham.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.ham.open span:nth-child(2){opacity:0;}
+.ham.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+.mob-nav{position:fixed;inset:0;top:64px;z-index:490;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;transform:translateY(-110%);transition:transform .5s cubic-bezier(.77,0,.18,1);}
+.mob-nav.open{transform:translateY(0);}
+.mob-nav a{font-family:'Playfair Display',serif;font-size:2rem;font-weight:400;color:var(--text2);text-decoration:none;transition:color .25s;}
+.mob-nav a:hover{color:var(--accent);}
+
+/* HERO */
+#hero{min-height:100vh;display:flex;align-items:center;padding:84px 40px 60px;position:relative;overflow:hidden;}
+.blob{position:absolute;pointer-events:none;border-radius:50%;filter:blur(100px);}
+.bl1{width:600px;height:600px;background:radial-gradient(circle,var(--accent2),transparent 70%);top:-150px;right:-120px;opacity:.25;animation:drift 10s ease-in-out infinite;}
+.bl2{width:450px;height:450px;background:radial-gradient(circle,var(--teal),transparent 70%);bottom:-80px;left:-100px;opacity:.18;animation:drift 13s ease-in-out infinite reverse;}
+.bl3{width:300px;height:300px;background:radial-gradient(circle,#f0c060,transparent 70%);top:40%;left:40%;opacity:.1;animation:drift 8s ease-in-out infinite 2s;}
+@keyframes drift{0%,100%{transform:translate(0,0);}33%{transform:translate(28px,-22px);}66%{transform:translate(-18px,22px);}}
+.hero-inner{max-width:1180px;margin:0 auto;width:100%;display:grid;grid-template-columns:1.15fr 1fr;gap:60px;align-items:center;position:relative;z-index:2;}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--accent3);border:1px solid rgba(224,92,32,.22);color:var(--accent);border-radius:30px;padding:7px 16px;font-size:.7rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;margin-bottom:22px;opacity:0;animation:sUp .7s .1s ease forwards;}
+.bdot{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:pulse 1.9s ease-in-out infinite;}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.4;transform:scale(.8);}}
+.hero-hi{font-size:1.05rem;color:var(--text2);font-weight:400;margin-bottom:7px;opacity:0;animation:sUp .7s .25s ease forwards;}
+.hero-name{font-family:'Playfair Display',serif;font-size:clamp(3rem,6.5vw,5.2rem);font-weight:400;line-height:1.06;color:var(--text);opacity:0;animation:sUp .8s .4s ease forwards;}
+.aw{font-style:italic;color:var(--accent);position:relative;display:inline-block;}
+.aw::after{content:'';position:absolute;bottom:2px;left:0;right:0;height:3px;background:var(--accent);border-radius:2px;opacity:.28;}
+.hero-role{display:inline-flex;align-items:center;gap:10px;margin-top:16px;padding:10px 18px;background:var(--teal2);border:1px solid var(--teal3);border-radius:12px;opacity:0;animation:sUp .8s .55s ease forwards;}
+.role-txt{font-size:.82rem;font-weight:600;color:var(--teal);}
+.hero-desc{font-size:.97rem;line-height:1.8;color:var(--text2);font-weight:300;max-width:500px;margin:22px 0 32px;opacity:0;animation:sUp .8s .68s ease forwards;}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;opacity:0;animation:sUp .8s .82s ease forwards;}
+.btn-p{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#fff;padding:13px 28px;border-radius:50px;font-size:.8rem;font-weight:700;letter-spacing:.03em;text-decoration:none;border:none;cursor:pointer;box-shadow:0 6px 22px rgba(224,92,32,.3);transition:transform .25s,box-shadow .25s;font-family:'Plus Jakarta Sans',sans-serif;}
+.btn-p:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(224,92,32,.4);}
+.btn-o{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--text);padding:13px 28px;border-radius:50px;font-size:.8rem;font-weight:700;letter-spacing:.03em;text-decoration:none;border:2px solid var(--border);cursor:pointer;transition:border-color .25s,color .25s,transform .25s;font-family:'Plus Jakarta Sans',sans-serif;}
+.btn-o:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px);}
+.hero-vis{display:flex;flex-direction:column;align-items:center;gap:18px;opacity:0;animation:fIn .9s .5s ease forwards;}
+.av-wrap{position:relative;width:fit-content;}
+.avatar{width:250px;height:250px;border-radius:50%;background:linear-gradient(135deg,var(--bg3),var(--accent3));border:4px solid var(--card);box-shadow:0 20px 60px var(--shadow);display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative;}
+.av-txt{font-family:'Playfair Display',serif;font-size:4.5rem;font-weight:400;color:var(--accent);opacity:.65;user-select:none;}
+.av-ring{position:absolute;inset:-12px;border-radius:50%;border:2px dashed var(--accent);opacity:.2;animation:spin 20s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg);}}
+.av-badge{position:absolute;bottom:14px;right:0;width:50px;height:50px;border-radius:50%;background:var(--card);box-shadow:0 4px 16px var(--shadow);display:flex;align-items:center;justify-content:center;font-size:1.5rem;border:2px solid var(--border2);}
+.fc{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:13px 17px;box-shadow:0 8px 28px var(--shadow2);display:flex;align-items:center;gap:11px;font-size:.78rem;font-weight:600;color:var(--text);}
+.fc-s{font-size:.66rem;color:var(--text3);font-weight:400;margin-top:1px;}
+.fc-i{font-size:1.25rem;}
+.fc.c1{animation:floatY 4.2s ease-in-out infinite;}
+.fc.c2{animation:floatY 4.2s ease-in-out 2s infinite;}
+@keyframes floatY{0%,100%{transform:translateY(0);}50%{transform:translateY(-9px);}}
+
+/* TICKER */
+.ticker-wrap{background:var(--accent);overflow:hidden;padding:12px 0;position:relative;z-index:2;}
+.ticker-inner{display:flex;white-space:nowrap;animation:ticker 28s linear infinite;}
+.ticker-inner:hover{animation-play-state:paused;}
+.tick-item{display:inline-flex;align-items:center;gap:10px;padding:0 40px;font-size:.75rem;font-weight:600;letter-spacing:.05em;color:#fff;text-transform:uppercase;}
+.tick-sep{color:rgba(255,255,255,.4);}
+@keyframes ticker{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+/* STATS */
+.stats-strip{background:var(--bg2);border-top:1px solid var(--border2);border-bottom:1px solid var(--border2);position:relative;z-index:2;}
+.stats-in{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);padding:0 40px;}
+.stat{padding:44px 20px;text-align:center;border-right:1px solid var(--border2);transition:background .25s;}
+.stat:last-child{border-right:none;}
+.stat:hover{background:var(--card);}
+.stat-n{font-family:'Playfair Display',serif;font-size:3rem;font-weight:400;color:var(--accent);display:block;line-height:1;}
+.stat-l{font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--text3);margin-top:8px;display:block;font-weight:500;}
+
+/* SHARED */
+.sec{position:relative;z-index:2;}
+.wrap{max-width:1180px;margin:0 auto;padding:100px 40px;}
+.chip{display:inline-flex;align-items:center;gap:6px;background:var(--teal2);color:var(--teal);border-radius:30px;padding:5px 14px;font-size:.68rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;margin-bottom:12px;}
+.sh{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,4.2vw,3rem);font-weight:400;line-height:1.15;color:var(--text);margin-bottom:10px;}
+.sh em{font-style:italic;color:var(--accent);}
+.ss{font-size:.97rem;color:var(--text2);font-weight:300;line-height:1.75;max-width:520px;margin-bottom:52px;}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .75s ease,transform .75s ease;}
+.reveal.up{opacity:1;transform:translateY(0);}
+.reveal-l{opacity:0;transform:translateX(-24px);transition:opacity .75s ease,transform .75s ease;}
+.reveal-l.up{opacity:1;transform:translateX(0);}
+.reveal-r{opacity:0;transform:translateX(24px);transition:opacity .75s ease,transform .75s ease;}
+.reveal-r.up{opacity:1;transform:translateX(0);}
+
+/* ABOUT */
+#about{background:var(--bg2);}
+.about-g{display:grid;grid-template-columns:1fr 1.1fr;gap:64px;align-items:center;}
+.aimg-wrap{position:relative;padding:20px 20px 20px 0;}
+.aimg{width:100%;aspect-ratio:4/5;border-radius:24px;background:linear-gradient(145deg,var(--bg3) 0%,var(--accent3) 100%);display:flex;align-items:center;justify-content:center;border:1px solid var(--border);overflow:hidden;position:relative;}
+.aimg-bg{font-family:'Playfair Display',serif;font-size:10rem;font-weight:400;color:var(--accent);opacity:.07;user-select:none;position:absolute;}
+.aimg-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(224,92,32,.06),transparent);}
+.corner-s{position:absolute;width:70px;height:70px;border-radius:14px;background:var(--card);box-shadow:0 8px 28px var(--shadow);display:flex;align-items:center;justify-content:center;font-size:1.7rem;border:1px solid var(--border2);}
+.corner-s.tl{top:-4px;left:-4px;}
+.corner-s.br{bottom:-4px;right:16px;}
+.loc-b{position:absolute;bottom:24px;left:-14px;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:11px 16px;box-shadow:0 8px 24px var(--shadow);font-size:.78rem;font-weight:600;color:var(--text);display:flex;align-items:center;gap:10px;white-space:nowrap;}
+.flip-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:32px;}
+.flip-wrap{height:120px;perspective:800px;cursor:pointer;}
+.flip-inner{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform .55s cubic-bezier(.4,0,.2,1);}
+.flip-wrap:hover .flip-inner,.flip-wrap.flipped .flip-inner{transform:rotateY(180deg);}
+.flip-f,.flip-b{position:absolute;inset:0;backface-visibility:hidden;border-radius:14px;padding:16px 18px;display:flex;flex-direction:column;justify-content:center;}
+.flip-f{background:var(--card);border:1px solid var(--border2);}
+.flip-b{background:var(--accent3);border:1px solid rgba(224,92,32,.2);transform:rotateY(180deg);}
+.flip-icon{font-size:1.5rem;margin-bottom:6px;}
+.flip-title{font-size:.82rem;font-weight:700;color:var(--text);}
+.flip-back-txt{font-size:.75rem;color:var(--text2);font-weight:400;line-height:1.5;}
+
+/* EXPERIENCE */
+#experience{background:var(--bg);}
+.tl-wrap{position:relative;padding-left:32px;}
+.tl-wrap::before{content:'';position:absolute;left:6px;top:8px;bottom:0;width:2px;background:linear-gradient(to bottom,var(--accent),var(--teal),transparent);border-radius:2px;}
+.tl-item{position:relative;padding-bottom:52px;}
+.tl-item:last-child{padding-bottom:0;}
+.tl-dot{position:absolute;left:-32px;top:4px;width:16px;height:16px;border-radius:50%;background:var(--card);border:2.5px solid var(--accent);box-shadow:0 0 0 4px var(--accent3);transition:transform .3s;}
+.tl-item:hover .tl-dot{transform:scale(1.3);}
+.tl-cur .tl-dot{background:var(--accent);animation:glow 2s ease-in-out infinite;}
+@keyframes glow{0%,100%{box-shadow:0 0 0 4px var(--accent3);}50%{box-shadow:0 0 0 8px rgba(224,92,32,.15);}}
+.tl-period{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:8px;display:flex;align-items:center;gap:8px;}
+.tl-now{display:inline-flex;align-items:center;gap:4px;background:var(--accent);color:#fff;border-radius:30px;padding:2px 9px;font-size:.6rem;letter-spacing:.06em;}
+.tl-card{background:var(--card);border:1px solid var(--border2);border-radius:18px;padding:24px 28px;transition:border-color .3s,box-shadow .3s,transform .3s;}
+.tl-item:hover .tl-card{border-color:var(--accent);box-shadow:0 8px 32px var(--shadow2);transform:translateX(4px);}
+.tl-role{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:400;color:var(--text);margin-bottom:4px;}
+.tl-co{font-size:.75rem;font-weight:600;color:var(--text3);letter-spacing:.08em;text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+.tl-co-dot{width:4px;height:4px;border-radius:50%;background:var(--teal);}
+.tl-desc{font-size:.88rem;line-height:1.75;color:var(--text2);font-weight:300;}
+.tl-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;}
+.tl-tag{background:var(--teal2);color:var(--teal);border-radius:20px;padding:4px 12px;font-size:.68rem;font-weight:600;letter-spacing:.04em;}
+
+/* SKILLS */
+#skills{background:var(--bg2);}
+.skills-g{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start;}
+.sk-rows{display:flex;flex-direction:column;gap:20px;}
+.sk-row{display:flex;align-items:center;gap:14px;}
+.sk-name{font-size:.8rem;font-weight:600;color:var(--text);min-width:140px;}
+.sk-bg{flex:1;height:8px;background:var(--bg3);border-radius:10px;overflow:hidden;}
+.sk-fill{height:100%;border-radius:10px;background:linear-gradient(90deg,var(--accent),var(--accent2));width:0;transition:width 1.3s cubic-bezier(.25,.46,.45,.94);}
+.sk-pct{font-size:.72rem;color:var(--text3);font-weight:600;min-width:34px;text-align:right;}
+.tc-head{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-bottom:14px;}
+.tags-cloud{display:flex;flex-wrap:wrap;gap:9px;}
+.tag{background:var(--tag-bg);color:var(--tag-color);border-radius:30px;padding:6px 15px;font-size:.73rem;font-weight:600;border:1px solid rgba(224,92,32,.14);cursor:default;transition:background .22s,color .22s,transform .2s;}
+.tag:hover{background:var(--accent);color:#fff;transform:scale(1.06);}
+
+/* ── ARTICLES & INSIGHTS ── */
+#articles{background:var(--bg);}
+.articles-header{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:20px;margin-bottom:48px;}
+.filter-row{display:flex;gap:10px;flex-wrap:wrap;}
+.filter-btn{background:var(--card);border:1.5px solid var(--border);border-radius:30px;padding:7px 18px;font-size:.72rem;font-weight:600;color:var(--text2);cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;transition:border-color .25s,color .25s,background .25s;}
+.filter-btn:hover,.filter-btn.active{background:var(--accent);border-color:var(--accent);color:#fff;}
+.articles-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:24px;}
+.article-card{background:var(--card);border:1px solid var(--border2);border-radius:20px;overflow:hidden;cursor:pointer;transition:border-color .3s,box-shadow .3s,transform .3s;display:flex;flex-direction:column;}
+.article-card:hover{border-color:var(--accent);box-shadow:0 12px 40px var(--shadow2);transform:translateY(-4px);}
+.ac-top{padding:24px 24px 0;flex:1;}
+.ac-cat{display:inline-flex;align-items:center;gap:6px;border-radius:20px;padding:4px 12px;font-size:.65rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;margin-bottom:14px;}
+.cat-study{background:var(--teal2);color:var(--teal);}
+.cat-tips{background:#fef9e7;color:#a0720a;}
+[data-theme="dark"] .cat-tips{background:#2a2210;color:#d4a830;}
+.cat-project{background:var(--accent3);color:var(--accent);}
+.ac-title{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:400;color:var(--text);line-height:1.35;margin-bottom:10px;}
+.ac-summary{font-size:.82rem;line-height:1.65;color:var(--text2);font-weight:300;}
+.ac-bottom{padding:16px 24px 20px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--border2);margin-top:18px;}
+.ac-date{font-size:.68rem;color:var(--text3);font-weight:500;}
+.ac-tags{display:flex;gap:6px;flex-wrap:wrap;}
+.ac-tag{background:var(--bg2);color:var(--text3);border-radius:20px;padding:3px 9px;font-size:.62rem;font-weight:600;}
+.ac-arrow{font-size:.85rem;color:var(--accent);font-weight:700;transition:transform .25s;}
+.article-card:hover .ac-arrow{transform:translateX(4px);}
+.no-articles{text-align:center;padding:60px 20px;color:var(--text3);}
+.no-articles .na-icon{font-size:3rem;margin-bottom:16px;}
+.no-articles p{font-size:.9rem;line-height:1.7;}
+
+/* ARTICLE MODAL */
+.modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(6px);z-index:800;opacity:0;pointer-events:none;transition:opacity .35s;}
+.modal-backdrop.open{opacity:1;pointer-events:all;}
+.modal{position:fixed;top:50%;left:50%;transform:translate(-50%,-44%);z-index:801;width:min(760px,94vw);max-height:88vh;background:var(--card);border-radius:24px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 32px 80px rgba(0,0,0,.35);opacity:0;transition:opacity .35s,transform .35s;pointer-events:none;}
+.modal.open{opacity:1;transform:translate(-50%,-50%);pointer-events:all;}
+.modal-head{padding:28px 32px 20px;border-bottom:1px solid var(--border2);display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-shrink:0;}
+.modal-close{width:36px;height:36px;border-radius:50%;background:var(--bg2);border:1px solid var(--border);font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--text2);transition:background .25s,color .25s;font-family:'Plus Jakarta Sans',sans-serif;}
+.modal-close:hover{background:var(--accent);color:#fff;border-color:var(--accent);}
+.modal-body{overflow-y:auto;padding:28px 32px 36px;flex:1;}
+/* Prose styles */
+.prose h2{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:400;color:var(--text);margin:28px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--border2);}
+.prose h3{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:400;color:var(--text);margin:22px 0 10px;}
+.prose p{font-size:.92rem;line-height:1.8;color:var(--text2);margin-bottom:14px;font-weight:300;}
+.prose ul,.prose ol{margin:10px 0 14px 20px;}
+.prose li{font-size:.9rem;line-height:1.75;color:var(--text2);margin-bottom:5px;font-weight:300;}
+.prose strong{color:var(--text);font-weight:600;}
+.prose em{font-style:italic;color:var(--accent);}
+.prose blockquote{border-left:3px solid var(--accent);padding:10px 18px;background:var(--accent3);border-radius:0 10px 10px 0;margin:18px 0;font-size:.9rem;color:var(--text2);font-style:italic;}
+.prose code{background:var(--bg3);padding:2px 7px;border-radius:5px;font-size:.82rem;font-family:monospace;color:var(--accent);}
+.prose hr{border:none;border-top:1px solid var(--border2);margin:24px 0;}
+.prose table{width:100%;border-collapse:collapse;margin:16px 0;font-size:.85rem;}
+.prose th{background:var(--bg2);padding:10px 14px;text-align:left;font-weight:600;color:var(--text);border:1px solid var(--border);}
+.prose td{padding:9px 14px;border:1px solid var(--border2);color:var(--text2);font-weight:300;}
+.prose a{color:var(--accent);text-decoration:underline;}
+
+/* CONTACT */
+#contact{background:var(--bg2);}
+.contact-g{display:grid;grid-template-columns:1.1fr 1fr;gap:72px;align-items:start;}
+.contact-note{font-size:.97rem;line-height:1.78;color:var(--text2);font-weight:300;margin-bottom:32px;}
+.contact-note strong{color:var(--text);font-weight:600;}
+.clinks{display:flex;flex-direction:column;gap:13px;}
+.clink{display:flex;align-items:center;gap:15px;padding:16px 20px;border-radius:16px;background:var(--card);border:1px solid var(--border2);text-decoration:none;transition:border-color .25s,transform .25s,box-shadow .25s;}
+.clink:hover{border-color:var(--accent);transform:translateX(5px);box-shadow:0 6px 24px var(--shadow2);}
+.clink-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;}
+.ci-o{background:var(--accent3);}
+.ci-t{background:var(--teal2);}
+.ci-b{background:#e8f0fe;}
+[data-theme="dark"] .ci-b{background:#1a2340;}
+.cl-label{font-size:.64rem;color:var(--text3);font-weight:600;text-transform:uppercase;letter-spacing:.07em;}
+.cl-val{font-size:.88rem;font-weight:700;color:var(--text);margin-top:1px;}
+.avail-card{background:linear-gradient(135deg,var(--accent3),var(--teal2));border:1px solid var(--border);border-radius:20px;padding:32px;position:relative;overflow:hidden;margin-bottom:20px;}
+.avail-card::before{content:'';position:absolute;top:-40px;right:-40px;width:140px;height:140px;border-radius:50%;background:var(--accent);opacity:.08;}
+.avail-status{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
+.status-dot{width:10px;height:10px;border-radius:50%;background:#22c55e;animation:pulse 2s ease-in-out infinite;}
+.avail-head{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--text);margin-bottom:8px;}
+.avail-desc{font-size:.85rem;color:var(--text2);font-weight:300;line-height:1.65;}
+.avail-chips{margin-top:20px;display:flex;flex-wrap:wrap;gap:8px;}
+.avail-chip{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:5px 13px;font-size:.7rem;font-weight:600;color:var(--text2);}
+.fact-box{background:var(--card);border:1px solid var(--border2);border-radius:16px;padding:22px;text-align:center;}
+.fact-icon{font-size:1.8rem;margin-bottom:8px;}
+.fact-hint{font-size:.78rem;color:var(--text2);margin-bottom:14px;font-weight:400;}
+#factResult{display:none;margin-top:14px;padding:14px;background:var(--accent3);border-radius:10px;font-size:.82rem;color:var(--text2);line-height:1.6;font-weight:400;text-align:left;}
+
+/* FOOTER */
+footer{background:var(--bg2);border-top:1px solid var(--border2);padding:48px 40px 36px;position:relative;z-index:2;}
+.footer-in{max-width:1180px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;}
+.f-logo{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--text);display:flex;align-items:center;gap:8px;}
+.f-links{display:flex;gap:24px;flex-wrap:wrap;}
+.f-links a{font-size:.75rem;color:var(--text3);text-decoration:none;transition:color .25s;}
+.f-links a:hover{color:var(--accent);}
+.f-copy{font-size:.7rem;color:var(--text3);letter-spacing:.04em;}
+
+/* BACK TO TOP */
+#btt{position:fixed;bottom:28px;right:28px;width:44px;height:44px;border-radius:50%;background:var(--accent);color:#fff;border:none;cursor:pointer;font-size:1.1rem;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 22px rgba(224,92,32,.4);transform:translateY(80px);opacity:0;transition:transform .4s,opacity .4s;z-index:400;}
+#btt.show{transform:translateY(0);opacity:1;}
+#btt:hover{transform:translateY(-3px) !important;}
+
+@keyframes sUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
+@keyframes fIn{from{opacity:0;}to{opacity:1;}}
+
+/* RESPONSIVE */
+@media(max-width:960px){
+  .hero-inner,.about-g,.contact-g,.skills-g{grid-template-columns:1fr;gap:44px;}
+  .hero-vis{display:none;}
+  .stats-in{grid-template-columns:repeat(2,1fr);}
+  .stat:nth-child(2){border-right:none;}
+  .stat:nth-child(3){border-right:1px solid var(--border2);}
+  .nav-links{display:none;}
+  .ham{display:flex;}
+  .wrap{padding:80px 24px;}
+  .footer-in{flex-direction:column;text-align:center;}
+  .f-links{justify-content:center;}
+  .articles-header{flex-direction:column;align-items:flex-start;}
+  .modal-head{padding:20px 20px 16px;}
+  .modal-body{padding:20px 20px 28px;}
+}
+@media(max-width:560px){
+  .nav-in{padding:0 18px;}
+  #hero{padding:84px 18px 50px;}
+  .stats-in{padding:0 18px;}
+  .wrap{padding:72px 18px;}
+  .flip-grid{grid-template-columns:1fr;}
+  footer{padding:40px 18px 28px;}
+  .articles-grid{grid-template-columns:1fr;}
+  .hero-btns{flex-direction:column;}
+  .btn-p,.btn-o{width:100%;justify-content:center;}
+  .tl-wrap{padding-left:24px;}
+  .tl-dot{left:-24px;}
+}
+</style>
+</head>
+<body>
+
+<div id="cur"></div>
+<div id="cur2"></div>
+<div id="prog"></div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-in">
+    <a class="nav-logo" href="#hero"><span class="ldot"></span>Muhammed Razi</a>
+    <div class="nav-links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#articles">Articles</a>
+      <a href="#contact">Contact</a>
+      <button class="tpill" id="tBtn"><span class="tic" id="tIc">☀️</span><span id="tLbl">Light</span></button>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px;">
+      <button class="tpill" id="tBtnM" style="display:none;"><span class="tic" id="tIcM">☀️</span></button>
+      <button class="ham" id="ham"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="mob-nav" id="mobNav">
+  <a href="#about" class="ml">About</a>
+  <a href="#experience" class="ml">Experience</a>
+  <a href="#skills" class="ml">Skills</a>
+  <a href="#articles" class="ml">Articles</a>
+  <a href="#contact" class="ml">Contact</a>
+</div>
+
+<!-- HERO -->
+<section id="hero" class="sec">
+  <div class="blob bl1"></div><div class="blob bl2"></div><div class="blob bl3"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge"><span class="bdot"></span>E&amp;I QC Engineer · KSA</div>
+      <p class="hero-hi">Hey there! 👋 I'm</p>
+      <h1 class="hero-name">Muhammed<br><span class="aw">Razi</span></h1>
+      <div class="hero-role"><span>⚡</span><span class="role-txt">Electrical &amp; Instrumentation Quality Control Engineer</span></div>
+      <p class="hero-desc">Based in <strong>Khobar, Saudi Arabia</strong> — I specialise in ensuring electrical and instrumentation systems meet the highest quality standards on industrial and oil &amp; gas projects. Detail-oriented, safety-first, always learning.</p>
+      <div class="hero-btns">
+        <a href="#articles" class="btn-p">Read My Articles →</a>
+        <a href="#contact" class="btn-o">Get In Touch</a>
+      </div>
+    </div>
+    <div class="hero-vis">
+      <div class="av-wrap">
+        <div class="avatar"><div class="av-txt">MR</div><div class="av-ring"></div></div>
+        <div class="av-badge">⚡</div>
+      </div>
+      <div class="fc c1"><span class="fc-i">🔍</span><div><div>QC Inspection</div><div class="fc-s">ITP · NCR · Redline</div></div></div>
+      <div class="fc c2"><span class="fc-i">📋</span><div><div>2+ Years Field XP</div><div class="fc-s">Oil &amp; Gas · Industrial</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker-inner">
+    <span class="tick-item">⚡ E&amp;I QC Engineer <span class="tick-sep">·</span></span>
+    <span class="tick-item">🔍 Quality Inspection <span class="tick-sep">·</span></span>
+    <span class="tick-item">📋 ITP &amp; NCR Management <span class="tick-sep">·</span></span>
+    <span class="tick-item">🛢️ Oil &amp; Gas Projects <span class="tick-sep">·</span></span>
+    <span class="tick-item">📐 Instrumentation Calibration <span class="tick-sep">·</span></span>
+    <span class="tick-item">🇸🇦 Khobar, Saudi Arabia <span class="tick-sep">·</span></span>
+    <span class="tick-item">🏗️ Industrial Construction <span class="tick-sep">·</span></span>
+    <span class="tick-item">⚡ E&amp;I QC Engineer <span class="tick-sep">·</span></span>
+    <span class="tick-item">🔍 Quality Inspection <span class="tick-sep">·</span></span>
+    <span class="tick-item">📋 ITP &amp; NCR Management <span class="tick-sep">·</span></span>
+    <span class="tick-item">🛢️ Oil &amp; Gas Projects <span class="tick-sep">·</span></span>
+    <span class="tick-item">📐 Instrumentation Calibration <span class="tick-sep">·</span></span>
+    <span class="tick-item">🇸🇦 Khobar, Saudi Arabia <span class="tick-sep">·</span></span>
+    <span class="tick-item">🏗️ Industrial Construction <span class="tick-sep">·</span></span>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats-strip sec">
+  <div class="stats-in">
+    <div class="stat reveal"><span class="stat-n" data-t="2">0</span><span class="stat-l">Years Experience</span></div>
+    <div class="stat reveal"><span class="stat-n" data-t="3">0</span><span class="stat-l">Companies</span></div>
+    <div class="stat reveal"><span class="stat-n" data-t="100">0</span><span class="stat-l">% Safety Record</span></div>
+    <div class="stat reveal"><span class="stat-n" data-t="0">0</span><span class="stat-l">NCRs Unresolved</span></div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about" class="sec">
+  <div class="wrap">
+    <div class="about-g">
+      <div class="aimg-wrap reveal-l">
+        <div class="aimg"><div class="aimg-bg">MR</div><div class="aimg-overlay"></div></div>
+        <div class="corner-s tl">⚡</div><div class="corner-s br">🎯</div>
+        <div class="loc-b"><span>📍</span><div><div style="font-size:.63rem;color:var(--text3);">Based in</div><div>Khobar, Saudi Arabia</div></div></div>
+      </div>
+      <div>
+        <div class="chip reveal">👋 About Me</div>
+        <h2 class="sh reveal">I'm Muhammed —<br>nice to <em>meet you!</em></h2>
+        <p class="reveal" style="font-size:.97rem;line-height:1.78;color:var(--text2);font-weight:300;margin-bottom:16px;">I'm an <strong style="color:var(--text);font-weight:600;">E&amp;I QC Engineer</strong> with hands-on experience in electrical and instrumentation quality control across industrial projects in Saudi Arabia. I take pride in getting the details right — because in this field, details matter.</p>
+        <p class="reveal" style="font-size:.97rem;line-height:1.78;color:var(--text2);font-weight:300;margin-bottom:28px;">I also write about what I learn — standards, field tips, and project insights — so others starting out in QC can learn from real experience, not just textbooks. 🚀</p>
+        <div class="flip-grid">
+          <div class="flip-wrap reveal"><div class="flip-inner"><div class="flip-f"><div class="flip-icon">🔍</div><div class="flip-title">Quality First</div></div><div class="flip-b"><div class="flip-back-txt">Every cable, every junction, every joint — inspected to the standard. No shortcuts.</div></div></div></div>
+          <div class="flip-wrap reveal"><div class="flip-inner"><div class="flip-f"><div class="flip-icon">📋</div><div class="flip-title">Documentation</div></div><div class="flip-b"><div class="flip-back-txt">Clean ITP records, redlines, and NCR tracking. If it's not documented, it didn't happen.</div></div></div></div>
+          <div class="flip-wrap reveal"><div class="flip-inner"><div class="flip-f"><div class="flip-icon">🛡️</div><div class="flip-title">Safety Always</div></div><div class="flip-b"><div class="flip-back-txt">HSE compliance isn't optional. I maintain a zero-incident mindset on every site visit.</div></div></div></div>
+          <div class="flip-wrap reveal"><div class="flip-inner"><div class="flip-f"><div class="flip-icon">✍️</div><div class="flip-title">I Write Too</div></div><div class="flip-b"><div class="flip-back-txt">I document what I learn — standards breakdowns, field tips, lessons from the job.</div></div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="sec">
+  <div class="wrap">
+    <div class="chip reveal">💼 My Journey</div>
+    <h2 class="sh reveal">Experience <em>timeline</em></h2>
+    <p class="ss reveal">Over 2 years of hands-on QC engineering across multiple industrial projects in Saudi Arabia.</p>
+    <div class="tl-wrap">
+      <div class="tl-item tl-cur reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-period">Mar 2026 — Present <span class="tl-now">● Current</span></div>
+        <div class="tl-card">
+          <div class="tl-role">E&amp;I QC Engineer</div>
+          <div class="tl-co"><span class="tl-co-dot"></span>Current Company · Khobar, KSA</div>
+          <div class="tl-desc">Leading E&amp;I quality control inspections on site, coordinating with project teams to ensure compliance with ITP requirements, client specifications, and international standards. Managing NCR documentation and closeout, redline drawings, and pre-commissioning checks.</div>
+          <div class="tl-tags"><span class="tl-tag">QC Inspection</span><span class="tl-tag">ITP</span><span class="tl-tag">NCR Management</span><span class="tl-tag">Pre-Commissioning</span></div>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-period">Sep 2024 — Mar 2026</div>
+        <div class="tl-card">
+          <div class="tl-role">E&amp;I QC Engineer</div>
+          <div class="tl-co"><span class="tl-co-dot"></span>Previous Company · KSA</div>
+          <div class="tl-desc">Performed quality inspections on electrical installations, instrumentation loops, and cable tray systems. Reviewed and approved method statements, material submittals, and inspection test records.</div>
+          <div class="tl-tags"><span class="tl-tag">Instrumentation</span><span class="tl-tag">Loop Testing</span><span class="tl-tag">Cable Tray</span><span class="tl-tag">Material Review</span></div>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-period">Feb 2024 — Sep 2024</div>
+        <div class="tl-card">
+          <div class="tl-role">E&amp;I QC Engineer</div>
+          <div class="tl-co"><span class="tl-co-dot"></span>First Company · KSA</div>
+          <div class="tl-desc">Started my QC career in the field — learning electrical and instrumentation inspection, quality documentation, and on-site coordination. Assisted in ITP preparation, site walk-downs, and reporting.</div>
+          <div class="tl-tags"><span class="tl-tag">Field Inspection</span><span class="tl-tag">ITP Preparation</span><span class="tl-tag">Site Walk-down</span><span class="tl-tag">QC Reporting</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="sec">
+  <div class="wrap">
+    <div class="skills-g">
+      <div>
+        <div class="chip reveal">⚡ Expertise</div>
+        <h2 class="sh reveal">Skills &<br><em>strengths</em></h2>
+        <p class="ss reveal" style="margin-bottom:32px;">Technical chops built in the field — not just from textbooks.</p>
+        <div class="sk-rows">
+          <div class="sk-row reveal"><span class="sk-name">E&amp;I Inspection</span><div class="sk-bg"><div class="sk-fill" data-w="90"></div></div><span class="sk-pct">90%</span></div>
+          <div class="sk-row reveal"><span class="sk-name">ITP &amp; NCR Mgmt</span><div class="sk-bg"><div class="sk-fill" data-w="88"></div></div><span class="sk-pct">88%</span></div>
+          <div class="sk-row reveal"><span class="sk-name">Calibration</span><div class="sk-bg"><div class="sk-fill" data-w="82"></div></div><span class="sk-pct">82%</span></div>
+          <div class="sk-row reveal"><span class="sk-name">Documentation</span><div class="sk-bg"><div class="sk-fill" data-w="92"></div></div><span class="sk-pct">92%</span></div>
+          <div class="sk-row reveal"><span class="sk-name">HSE Compliance</span><div class="sk-bg"><div class="sk-fill" data-w="95"></div></div><span class="sk-pct">95%</span></div>
+          <div class="sk-row reveal"><span class="sk-name">Client Coordination</span><div class="sk-bg"><div class="sk-fill" data-w="85"></div></div><span class="sk-pct">85%</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="chip reveal" style="margin-top:72px;">🏷️ Tools & Standards</div>
+        <h3 class="sh reveal" style="font-size:1.75rem;">What I work<br><em>with</em></h3>
+        <div class="reveal">
+          <div class="tc-head">Standards & Codes</div>
+          <div class="tags-cloud" style="margin-bottom:18px;">
+            <span class="tag">IEC 60079</span><span class="tag">NFPA 70</span><span class="tag">ISA Standards</span><span class="tag">SAES</span><span class="tag">ASME</span><span class="tag">ISO 9001</span>
+          </div>
+          <div class="tc-head" style="margin-top:18px;">Tools & Disciplines</div>
+          <div class="tags-cloud">
+            <span class="tag">ITP</span><span class="tag">NCR</span><span class="tag">Redline Drawings</span><span class="tag">Loop Testing</span><span class="tag">Megger Testing</span><span class="tag">Calibration</span><span class="tag">Cable Tray</span><span class="tag">Earthing</span><span class="tag">Ex-Inspection</span><span class="tag">MS Word</span><span class="tag">Excel</span><span class="tag">AutoCAD</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ARTICLES & INSIGHTS -->
+<section id="articles" class="sec">
+  <div class="wrap">
+    <div class="articles-header">
+      <div>
+        <div class="chip reveal">✍️ Articles & Insights</div>
+        <h2 class="sh reveal">Things I've <em>learned</em></h2>
+        <p class="ss reveal" style="margin-bottom:0;">Study notes, field tips, and project experiences — written in plain language so anyone can learn from them.</p>
+      </div>
+      <div class="filter-row reveal">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="study-notes">📚 Study Notes</button>
+        <button class="filter-btn" data-filter="tips">💡 Tips</button>
+        <button class="filter-btn" data-filter="project">🏗️ Project</button>
+      </div>
+    </div>
+    <div class="articles-grid" id="articlesGrid">
+      <!-- Populated by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="sec">
+  <div class="wrap">
+    <div class="contact-g">
+      <div>
+        <div class="chip reveal">💬 Get In Touch</div>
+        <h2 class="sh reveal">Let's <em>connect!</em></h2>
+        <p class="contact-note reveal">Whether you want to discuss a project, talk about QC engineering, or just say hello — reach out directly. <strong>I'm always happy to connect!</strong> 😊</p>
+        <div class="clinks">
+          <a href="mailto:muhammedrazi@example.com" class="clink reveal">
+            <div class="clink-icon ci-o">📧</div>
+            <div><div class="cl-label">Email</div><div class="cl-val">muhammedrazi@example.com</div></div>
+          </a>
+          <a href="https://linkedin.com/in/muhammedrazi" target="_blank" class="clink reveal">
+            <div class="clink-icon ci-b">💼</div>
+            <div><div class="cl-label">LinkedIn</div><div class="cl-val">linkedin.com/in/muhammedrazi</div></div>
+          </a>
+          <a href="https://wa.me/966500000000" target="_blank" class="clink reveal">
+            <div class="clink-icon ci-t">💬</div>
+            <div><div class="cl-label">WhatsApp</div><div class="cl-val">+966 50 000 0000</div></div>
+          </a>
+        </div>
+      </div>
+      <div>
+        <div class="avail-card reveal-r">
+          <div class="avail-status"><span class="status-dot"></span><span style="font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--teal);">Currently Active</span></div>
+          <div class="avail-head">Open to New Opportunities</div>
+          <p class="avail-desc">I'm currently working as an E&amp;I QC Engineer in Khobar, KSA, and open to exciting new challenges or project collaborations.</p>
+          <div class="avail-chips">
+            <span class="avail-chip">🇸🇦 Based in KSA</span>
+            <span class="avail-chip">⚡ E&amp;I Specialist</span>
+            <span class="avail-chip">📋 2+ Years XP</span>
+          </div>
+        </div>
+        <div class="fact-box reveal-r">
+          <div class="fact-icon">🎲</div>
+          <div class="fact-hint">Click for a random engineering fact!</div>
+          <button onclick="showFact()" class="btn-p" style="font-size:.75rem;padding:10px 22px;">Give me a fact ⚡</button>
+          <div id="factResult"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-in">
+    <div class="f-logo"><span class="ldot"></span>Muhammed Razi</div>
+    <div class="f-links">
+      <a href="#about">About</a><a href="#experience">Experience</a>
+      <a href="#skills">Skills</a><a href="#articles">Articles</a><a href="#contact">Contact</a>
+    </div>
+    <div class="f-copy">Made with ☕ & 💛 · © 2026 Muhammed Razi · Khobar, KSA</div>
+  </div>
+</footer>
+
+<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<!-- ARTICLE MODAL -->
+<div class="modal-backdrop" id="backdrop" onclick="closeModal()"></div>
+<div class="modal" id="modal">
+  <div class="modal-head">
+    <div>
+      <div id="modalCat" style="margin-bottom:8px;"></div>
+      <div id="modalTitle" style="font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:400;color:var(--text);line-height:1.3;"></div>
+      <div id="modalMeta" style="font-size:.72rem;color:var(--text3);margin-top:8px;font-weight:500;"></div>
+    </div>
+    <button class="modal-close" onclick="closeModal()">✕</button>
+  </div>
+  <div class="modal-body prose" id="modalBody"></div>
+</div>
+
+<!-- marked.js for markdown parsing -->
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script>
+// ── CURSOR ──
+const c1=document.getElementById('cur'),c2=document.getElementById('cur2');
+let mx=-200,my=-200,rx=-200,ry=-200;
+if(window.matchMedia('(hover:hover)').matches){
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
+  (function loop(){c1.style.left=mx+'px';c1.style.top=my+'px';rx+=(mx-rx)*.13;ry+=(my-ry)*.13;c2.style.left=rx+'px';c2.style.top=ry+'px';requestAnimationFrame(loop);})();
+  document.querySelectorAll('a,button,.tag,.tl-card,.flip-wrap,.clink,.stat,.article-card,.filter-btn').forEach(el=>{
+    el.addEventListener('mouseenter',()=>document.body.classList.add('hov'));
+    el.addEventListener('mouseleave',()=>document.body.classList.remove('hov'));
+  });
+}
+
+// ── PROGRESS + SCROLL ──
+const pg=document.getElementById('prog');
+window.addEventListener('scroll',()=>{
+  pg.style.width=(scrollY/(document.body.scrollHeight-innerHeight)*100)+'%';
+  document.getElementById('navbar').classList.toggle('scrolled',scrollY>40);
+  document.getElementById('btt').classList.toggle('show',scrollY>400);
+  updateNav();
+});
+
+// ── THEME ──
+const html=document.documentElement;
+function setTheme(t){
+  html.setAttribute('data-theme',t);localStorage.setItem('theme',t);
+  const ic=t==='dark'?'🌙':'☀️';
+  document.querySelectorAll('.tic').forEach(i=>i.textContent=ic);
+  const l=document.getElementById('tLbl');if(l)l.textContent=t==='dark'?'Dark':'Light';
+}
+setTheme(localStorage.getItem('theme')||'light');
+document.getElementById('tBtn').addEventListener('click',()=>setTheme(html.getAttribute('data-theme')==='dark'?'light':'dark'));
+document.getElementById('tBtnM').addEventListener('click',()=>setTheme(html.getAttribute('data-theme')==='dark'?'light':'dark'));
+function checkMob(){document.getElementById('tBtnM').style.display=innerWidth<=960?'flex':'none';}
+checkMob();window.addEventListener('resize',checkMob);
+
+// ── HAMBURGER ──
+const ham=document.getElementById('ham'),mn=document.getElementById('mobNav');
+ham.addEventListener('click',()=>{ham.classList.toggle('open');mn.classList.toggle('open');document.body.style.overflow=mn.classList.contains('open')?'hidden':'';});
+document.querySelectorAll('.ml').forEach(l=>l.addEventListener('click',()=>{ham.classList.remove('open');mn.classList.remove('open');document.body.style.overflow='';}));
+
+// ── OBSERVER ──
+const io=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(!e.isIntersecting)return;
+    e.target.classList.add('up');
+    const n=e.target.querySelector?.('[data-t]');
+    if(n&&!n.dataset.done){
+      n.dataset.done='1';
+      const target=+n.dataset.t;
+      if(target===0){n.textContent='0';return;}
+      const sfx=n.closest('.stat').querySelector('.stat-l').textContent.includes('%')?'%':'+';
+      let cur=0;const step=Math.max(1,Math.ceil(target/40));
+      const t=setInterval(()=>{cur=Math.min(cur+step,target);n.textContent=cur+sfx;if(cur>=target)clearInterval(t);},35);
+    }
+    const bar=e.target.querySelector?.('.sk-fill');
+    if(bar&&!bar.dataset.done){bar.dataset.done='1';setTimeout(()=>bar.style.width=bar.dataset.w+'%',100);}
+  });
+},{threshold:0.14});
+document.querySelectorAll('.reveal,.reveal-l,.reveal-r').forEach(el=>io.observe(el));
+
+// ── ACTIVE NAV ──
+const secs=document.querySelectorAll('section[id]');
+const nas=document.querySelectorAll('#navLinks a');
+function updateNav(){let cur='';secs.forEach(s=>{if(scrollY>=s.offsetTop-100)cur=s.id;});nas.forEach(a=>{a.classList.toggle('act',a.getAttribute('href')==='#'+cur);});}
+
+// ── FLIP CARDS ──
+document.querySelectorAll('.flip-wrap').forEach(fw=>fw.addEventListener('click',()=>fw.classList.toggle('flipped')));
+
+// ── ARTICLES DATA ──
+// These are loaded from your /posts folder. When Decap CMS publishes, it writes
+// markdown files there. This JS fetches and parses them for display.
+// For Netlify deployment this fetch works perfectly.
+
+const POSTS_INDEX = [
+  { file: 'posts/2026-03-22-iec-60079-basics.md' },
+  { file: 'posts/2026-03-20-ncr-management-guide.md' },
+];
+
+const catMeta = {
+  'study-notes': { label: '📚 Study Notes / Standards', cls: 'cat-study' },
+  'tips':         { label: '💡 Tips & Lessons Learned', cls: 'cat-tips' },
+  'project':      { label: '🏗️ Project Experience',    cls: 'cat-project' },
+};
+
+let allArticles = [];
+let currentFilter = 'all';
+
+function parseFrontmatter(raw) {
+  const match = raw.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
+  if (!match) return { meta: {}, body: raw };
+  const meta = {};
+  match[1].split('\n').forEach(line => {
+    const idx = line.indexOf(':');
+    if (idx === -1) return;
+    let key = line.slice(0, idx).trim();
+    let val = line.slice(idx + 1).trim().replace(/^["']|["']$/g, '');
+    if (val.startsWith('[') && val.endsWith(']')) {
+      val = val.slice(1,-1).split(',').map(s=>s.trim().replace(/^["']|["']$/g,''));
+    }
+    meta[key] = val;
+  });
+  return { meta, body: match[2] };
+}
+
+function fmtDate(str) {
+  try {
+    return new Date(str).toLocaleDateString('en-GB', { day:'numeric', month:'long', year:'numeric' });
+  } catch { return str; }
+}
+
+function buildCard(a) {
+  const cat = catMeta[a.category] || { label: a.category, cls: 'cat-study' };
+  const tagsHtml = (a.tags||[]).slice(0,3).map(t=>`<span class="ac-tag">${t}</span>`).join('');
+  return `
+  <div class="article-card" data-cat="${a.category}" onclick="openModal(${a.id})">
+    <div class="ac-top">
+      <div class="ac-cat ${cat.cls}">${cat.label}</div>
+      <div class="ac-title">${a.title}</div>
+      <div class="ac-summary">${a.summary}</div>
+    </div>
+    <div class="ac-bottom">
+      <div>
+        <div class="ac-date">${fmtDate(a.date)}</div>
+        <div class="ac-tags" style="margin-top:6px;">${tagsHtml}</div>
+      </div>
+      <span class="ac-arrow">→</span>
+    </div>
+  </div>`;
+}
+
+function renderArticles() {
+  const grid = document.getElementById('articlesGrid');
+  const filtered = currentFilter === 'all' ? allArticles : allArticles.filter(a => a.category === currentFilter);
+  if (!filtered.length) {
+    grid.innerHTML = `<div class="no-articles" style="grid-column:1/-1;"><div class="na-icon">📭</div><p>No articles in this category yet.<br>Check back soon — more coming!</p></div>`;
+    return;
+  }
+  grid.innerHTML = filtered.map(a => buildCard(a)).join('');
+  // re-observe new cards
+  grid.querySelectorAll('.article-card').forEach((el,i) => {
+    el.style.opacity='0';el.style.transform='translateY(20px)';el.style.transition=`opacity .5s ${i*0.08}s ease, transform .5s ${i*0.08}s ease`;
+    setTimeout(()=>{el.style.opacity='1';el.style.transform='translateY(0)';},50);
+  });
+}
+
+async function loadArticles() {
+  const fetched = [];
+  for (let i = 0; i < POSTS_INDEX.length; i++) {
+    try {
+      const r = await fetch(POSTS_INDEX[i].file);
+      if (!r.ok) continue;
+      const raw = await r.text();
+      const {meta, body} = parseFrontmatter(raw);
+      fetched.push({ id: i, ...meta, body });
+    } catch(e) { console.warn('Could not load', POSTS_INDEX[i].file, e); }
+  }
+  // Sort by date descending
+  allArticles = fetched.sort((a,b) => new Date(b.date) - new Date(a.date));
+  if (!allArticles.length) {
+    // Fallback demo cards if running locally without a server
+    allArticles = [
+      { id:0, title:'Understanding IEC 60079 — Hazardous Area Classification Basics', date:'2026-03-22', category:'study-notes', summary:'A beginner-friendly breakdown of Ex zones, equipment categories, and why it matters for E&I engineers on oil & gas sites.', tags:['IEC 60079','ATEX','Ex Inspection'], body:'# Article content loads after deploying to Netlify.\n\nWhen deployed, your markdown files in the `/posts` folder are fetched and displayed here automatically.' },
+      { id:1, title:'NCR Management — How to Write a Good Non-Conformance Report', date:'2026-03-20', category:'tips', summary:'A practical guide to writing clear, effective NCRs that actually get closed — based on real field experience.', tags:['NCR','QC','Documentation'], body:'# Article content loads after deploying to Netlify.\n\nWrite your posts from the admin panel and they will appear here.' },
+    ];
+  }
+  renderArticles();
+}
+loadArticles();
+
+// Filters
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    currentFilter = btn.dataset.filter;
+    renderArticles();
+  });
+});
+
+// ── MODAL ──
+function openModal(id) {
+  const a = allArticles.find(x => x.id === id);
+  if (!a) return;
+  const cat = catMeta[a.category] || { label: a.category, cls: 'cat-study' };
+  document.getElementById('modalCat').innerHTML = `<span class="ac-cat ${cat.cls}" style="font-size:.65rem;">${cat.label}</span>`;
+  document.getElementById('modalTitle').textContent = a.title;
+  document.getElementById('modalMeta').textContent = fmtDate(a.date) + (a.tags?.length ? '  ·  ' + a.tags.join(', ') : '');
+  document.getElementById('modalBody').innerHTML = typeof marked !== 'undefined' ? marked.parse(a.body) : a.body.replace(/\n/g,'<br>');
+  document.getElementById('backdrop').classList.add('open');
+  document.getElementById('modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal() {
+  document.getElementById('backdrop').classList.remove('open');
+  document.getElementById('modal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+// ── ENGINEERING FACTS ──
+const facts=['⚡ The first practical electrical power system was built by Thomas Edison in 1882 in New York City.','📏 Instrumentation engineers use 4–20 mA because 0 mA would be indistinguishable from a broken wire!','🛢️ Saudi Aramco operates one of the world\'s largest instrumented industrial networks — spanning thousands of kilometres.','🔌 In Ex-rated areas, every cable gland and junction box must be certified. One wrong fitting can void the entire Ex certification.','📐 The first PLC was invented in 1968 by Dick Morley — it replaced relay logic panels in car manufacturing.','⚙️ IEC 61511 defines how safety instrumented systems must be designed, installed, and maintained in Process Industries.','🌡️ A thermocouple generates voltage through the Seebeck effect — two metals joined at one end produce a voltage proportional to temperature.','🔍 A well-documented NCR can save a project from costly rework — catching issues early is always cheaper than fixing them late.','🏗️ The Eastern Province is the heart of Saudi Arabia\'s oil & gas industry — one of the most active engineering hubs in the Gulf.','⚡ Lightning produces up to 1 billion volts. E&I engineers work with systems from 24V DC to 132kV — and everything in between.'];
+let lastFact=-1;
+function showFact(){
+  let i;do{i=Math.floor(Math.random()*facts.length);}while(i===lastFact);
+  lastFact=i;
+  const box=document.getElementById('factResult');
+  box.style.opacity='0';box.style.display='block';
+  box.textContent=facts[i];
+  requestAnimationFrame(()=>{box.style.transition='opacity .4s';box.style.opacity='1';});
+}
+
+// ── NETLIFY IDENTITY REDIRECT ──
+if (window.netlifyIdentity) {
+  window.netlifyIdentity.on('init', user => {
+    if (!user) {
+      window.netlifyIdentity.on('login', () => { document.location.href = '/admin/'; });
+    }
+  });
+}
+</script>
+</body>
+</html>

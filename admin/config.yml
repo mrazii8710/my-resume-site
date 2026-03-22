@@ -1,0 +1,26 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "assets/images"
+public_folder: "/assets/images"
+
+collections:
+  - name: "articles"
+    label: "Articles & Insights"
+    folder: "posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        options:
+          - { label: "📚 Study Notes / Standards", value: "study-notes" }
+          - { label: "💡 Tips & Lessons Learned", value: "tips" }
+          - { label: "🏗️ Project Experience", value: "project" }
+      - { label: "Summary", name: "summary", widget: "text", hint: "A short one-line description shown on the card." }
+      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Tags (comma separated)", name: "tags", widget: "list", default: [] }
