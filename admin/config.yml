@@ -24,3 +24,12 @@ collections:
       - { label: "Summary", name: "summary", widget: "text", hint: "A short one-line description shown on the card." }
       - { label: "Body", name: "body", widget: "markdown" }
       - { label: "Tags (comma separated)", name: "tags", widget: "list", default: [] }
+      - name: "companies"
+    label: "Companies Worked With"
+    folder: "companies"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Company Name", name: "title", widget: "string" }
+      - { label: "Logo", name: "logo", widget: "image" }
+      - { label: "Order (1 = first)", name: "order", widget: "number", default: 1 }
