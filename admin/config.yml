@@ -24,7 +24,7 @@ collections:
       - { label: "Summary", name: "summary", widget: "text", hint: "A short one-line description shown on the card." }
       - { label: "Body", name: "body", widget: "markdown" }
       - { label: "Tags (comma separated)", name: "tags", widget: "list", default: [] }
-      - name: "companies"
+    - name: "companies"
     label: "Companies Worked With"
     folder: "companies"
     create: true
